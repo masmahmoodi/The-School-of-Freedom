@@ -107,10 +107,12 @@ const About = () => {
           >
             <h3 className="text-2xl font-semibold text-navy mb-4">Expanding Our Reach</h3>
             <p className="text-lg text-gray-700 mb-4">
-              In addition to supporting Afghan girls, The School of Freedom also provides education and 
-              tutoring for other students, ensuring that our programs reach as many learners as possible. 
-              Our commitment to education for all students underscores our belief that quality education 
-              is a powerful tool for transformation and growth.
+               In addition to our global efforts, The School of Freedom is taking bold steps locally by launching a dual-immersion 
+               charter school in Sacramento. This school is designed to support refugee and newcomer students, 
+               offering a culturally responsive learning environment that values identity, language, and community. 
+               Through tailored instruction, academic support,
+                and inclusive programming, we aim to ensure that newcomers not only adapt but thrive in their new educational journeys. 
+                This charter school reflects our commitment to building bridges between cultures and providing every student with the tools to succeed.
             </p>
           </motion.div>
         </div>

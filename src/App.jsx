@@ -9,7 +9,7 @@ import Programs from '@/pages/Programs.jsx';
 import Team from '@/pages/Team.jsx';
 import Donate from '@/pages/Donate.jsx';
 import Petition from '@/pages/Petition.jsx';
-import Press from '@/pages/Press.jsx';
+import Updates from '@/pages/Updates.jsx';
 import Contact from '@/pages/Contact.jsx';
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
             <Route path="/team" element={<Team />} />
             <Route path="/donate" element={<Donate />} />
             <Route path="/petition" element={<Petition />} />
-            <Route path="/press" element={<Press />} />
+            <Route path="/Updates" element={<Updates />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>

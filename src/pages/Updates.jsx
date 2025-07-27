@@ -3,7 +3,9 @@ import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { ExternalLink, Calendar, Newspaper, Play } from 'lucide-react';
 
-const Press = () => {
+import walidImgNew from "../images/walidNewsPaper.jpg"
+
+const Updates = () => {
   const pressItems = [
     {
       type: 'article',
@@ -134,13 +136,13 @@ const Press = () => {
                 viewport={{ once: true }}
               >
                 <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                  <img
-                    className="w-full h-64 object-cover rounded-lg shadow-lg"
-                    alt={item.image}
-                    src={index === 0
-                      ? "https://storage.googleapis.com/hostinger-horizons-assets-prod/fcc56374-5a86-405d-8d0c-cb8f0ff23b21/dd5fa670ee4e83ebeebf5bc957f1fd68.png"
-                      : "https://images.unsplash.com/photo-1595872018818-97555653a011"}
-                  />
+              <img
+  className="w-full h-auto max-h-[500px] object-contain rounded-xl shadow-xl"
+  alt={item.image}
+  src={walidImgNew}
+/>
+
+
                 </div>
                 
                 <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
@@ -375,4 +377,4 @@ const Press = () => {
   );
 };
 
-export default Press;
+export default Updates;
