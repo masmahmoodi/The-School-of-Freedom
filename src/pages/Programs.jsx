@@ -87,7 +87,6 @@ const Programs = () => {
         </div>
       </section>
 
-      {/* Student Artwork Section */}
       <section className="py-16 bg-light-gray">
         <div className="container mx-auto px-4">
           <motion.div 

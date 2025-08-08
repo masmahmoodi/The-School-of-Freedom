@@ -90,7 +90,7 @@ const Updates = () => {
         <meta name="description" content="Latest press coverage and media resources for The School of Freedom, including articles from The Aggie and UC Davis Face to Face podcast." />
       </Helmet>
 
-      {/* Hero */}
+      
       <section className="py-20 hero-gradient text-white">
         <div className="container mx-auto px-4">
           <motion.div 

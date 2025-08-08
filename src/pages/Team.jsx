@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { Mail, Linkedin } from 'lucide-react';
 
-// 🧑‍💼 Use your own icons or download simple avatar icons and save them in /images
 import maleIcon from '../images/male-icon.png';
 import femaleIcon from '../images/female-icon.png';
 
