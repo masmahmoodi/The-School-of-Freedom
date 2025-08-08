@@ -1,8 +1,8 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import logo from '../images/logo.jpg'; // Import your logo image
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,9 +25,11 @@ const Navigation = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-navy rounded-full flex items-center justify-center">
-              <span className="text-gold font-bold text-xl">SOF</span>
-            </div>
+            <img
+              src={logo}
+              alt="School of Freedom Logo"
+              className="w-12 h-12 object-cover rounded-full"
+            />
             <div>
               <h1 className="text-xl font-bold text-navy font-display">The School of Freedom</h1>
               <p className="text-sm text-gray-600">Education is Her Freedom</p>

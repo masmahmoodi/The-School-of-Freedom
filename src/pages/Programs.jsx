@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
@@ -57,7 +56,7 @@ const Programs = () => {
       </section>
 
       {/* Programs Grid */}
-      <section className="section-padding">
+      <section id="programs-section" className="section-padding">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {programs.map((program, index) => (
@@ -114,7 +113,8 @@ const Programs = () => {
               <img  
                 className="w-full h-96 object-cover rounded-lg shadow-lg" 
                 alt="Student artwork showing floral face design with inspirational quote"
-               src="https://images.unsplash.com/photo-1657382399064-134d84fd845e" />
+                src="https://images.unsplash.com/photo-1657382399064-134d84fd845e"
+              />
             </motion.div>
             
             <motion.div
@@ -170,7 +170,8 @@ const Programs = () => {
               <img  
                 className="w-full h-96 object-cover rounded-lg shadow-lg" 
                 alt="Black and white pencil portrait drawing by student"
-               src="https://images.unsplash.com/photo-1581129511504-aba391af6cad" />
+                src="https://images.unsplash.com/photo-1581129511504-aba391af6cad"
+              />
             </motion.div>
           </div>
         </div>

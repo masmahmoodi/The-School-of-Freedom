@@ -136,15 +136,13 @@ const Updates = () => {
                 viewport={{ once: true }}
               >
                 <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-              <img
-  className="w-full h-auto max-h-[500px] object-contain rounded-xl shadow-xl"
-  alt={item.image}
-  src={walidImgNew}
-/>
-
-
+                  <img
+                    className="w-full h-auto max-h-[500px] object-contain rounded-xl shadow-xl"
+                    alt={item.image}
+                    src={walidImgNew}
+                  />
                 </div>
-                
+
                 <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
                   <div className="flex items-center space-x-2 mb-4">
                     {item.type === 'article' && <Newspaper className="w-5 h-5 text-gold" />}
@@ -154,7 +152,6 @@ const Updates = () => {
                       {item.type}
                     </span>
                   </div>
-                  
                   <h3 className="text-2xl font-semibold text-navy mb-3">{item.title}</h3>
                   <div className="flex items-center space-x-4 mb-4 text-gray-600">
                     <span className="font-medium">{item.publication}</span>
@@ -247,13 +244,17 @@ const Updates = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 onClick={() => {
-                  const event = new CustomEvent('show-toast', {
-                    detail: {
-                      title: '🚧 Media Kit Coming Soon!',
-                      description: 'Media resources aren\'t available for download yet—but don\'t worry! You can request them in your next prompt! 🚀'
-                    }
-                  });
-                  window.dispatchEvent(event);
+                  if (item.title === 'Program Statistics') {
+                    window.location.href = '/programs#programs-section';
+                  } else {
+                    const event = new CustomEvent('show-toast', {
+                      detail: {
+                        title: '🚧 Media Kit Coming Soon!',
+                        description: 'Media resources aren\'t available for download yet—but don\'t worry! You can request them in your next prompt! 🚀'
+                      }
+                    });
+                    window.dispatchEvent(event);
+                  }
                 }}
               >
                 <div className="w-12 h-12 bg-gold rounded-full flex items-center justify-center mx-auto mb-4">
@@ -266,110 +267,6 @@ const Updates = () => {
                 </span>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Press Contact */}
-      <section className="py-16 bg-navy text-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl font-bold font-display mb-6">Media Inquiries</h2>
-              <p className="text-xl mb-6">
-                Interested in covering our story or interviewing our team? 
-                We'd love to share our mission with your audience.
-              </p>
-              <div className="space-y-4">
-                <div>
-                  <h3 className="text-lg font-semibold mb-2">Press Contact</h3>
-                  <p>Moheb Salemi, Communications Manager</p>
-                  <p>press@schooloffreedom.org</p>
-                  <p>+1 (555) 123-4567</p>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold mb-2">Interview Availability</h3>
-                  <p>Walid Jailani, Founder & Executive Director</p>
-                  <p>Available for interviews and speaking engagements</p>
-                </div>
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <img  
-                className="w-full h-96 object-cover rounded-lg shadow-lg" 
-                alt="Walid Jailani being interviewed by media about School of Freedom"
-                src="https://media.licdn.com/dms/image/D5605AQFEOmb5rYt97Q/feedshare-thumbnail_720_1280/0/1705972077485?e=2147483647&v=beta&t=Wko-Bi_5qD_LywRu2jKzd3_YeR4sC0NsGLaj8w-A8u8" />
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Recognition */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <motion.div 
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="section-title">Recognition & Awards</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our work has been recognized by educational institutions, 
-              humanitarian organizations, and community leaders.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <motion.div className="card p-6 text-center"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <div className="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🏆</span>
-              </div>
-              <h3 className="text-xl font-semibold text-navy mb-2">UC Davis Recognition</h3>
-              <p className="text-gray-600">Featured in university publications and events</p>
-            </motion.div>
-
-            <motion.div className="card p-6 text-center"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              <div className="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">📰</span>
-              </div>
-              <h3 className="text-xl font-semibold text-navy mb-2">Media Coverage</h3>
-              <p className="text-gray-600">Featured in multiple news outlets and publications</p>
-            </motion.div>
-
-            <motion.div className="card p-6 text-center"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🌟</span>
-              </div>
-              <h3 className="text-xl font-semibold text-navy mb-2">Community Impact</h3>
-              <p className="text-gray-600">Recognized for outstanding community service</p>
-            </motion.div>
           </div>
         </div>
       </section>
