@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { BookOpen, Users, Heart, Award, ArrowRight } from 'lucide-react';
-
+// trigger
 const Home = () => {
   const stats = [
     { number: '1,200+', label: 'Students Empowered' },
