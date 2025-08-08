@@ -60,7 +60,7 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Education isss Her Freedom
+            Education is Her Freedom
           </motion.h1>
           
           <motion.p 
