@@ -1,7 +1,12 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
-import { BookOpen, Users, Globe, Palette, GraduationCap, Heart } from 'lucide-react';
+import { BookOpen, Users, Globe, Palette, GraduationCap, Heart, ExternalLink } from 'lucide-react';
+
+// >>> import your local art images
+import art1 from '../images/art1.png';
+import art2 from '../images/art2.png';
+import art3 from '../images/art31.jpeg';
 
 const Programs = () => {
   const programs = [
@@ -87,6 +92,7 @@ const Programs = () => {
         </div>
       </section>
 
+      {/* Art / Expression Section */}
       <section className="py-16 bg-light-gray">
         <div className="container mx-auto px-4">
           <motion.div 
@@ -102,6 +108,7 @@ const Programs = () => {
             </p>
           </motion.div>
 
+          {/* Row 1 */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -109,10 +116,10 @@ const Programs = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <img  
-                className="w-full h-96 object-cover rounded-lg shadow-lg" 
-                alt="Student artwork showing floral face design with inspirational quote"
-                src="https://images.unsplash.com/photo-1657382399064-134d84fd845e"
+              <img
+                className="w-full h-96 object-cover rounded-lg shadow-lg"
+                alt="Student artwork 1"
+                src={art1}
               />
             </motion.div>
             
@@ -136,6 +143,7 @@ const Programs = () => {
             </motion.div>
           </div>
 
+          {/* Row 2 */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -166,13 +174,58 @@ const Programs = () => {
               viewport={{ once: true }}
               className="order-1 md:order-2"
             >
-              <img  
-                className="w-full h-96 object-cover rounded-lg shadow-lg" 
-                alt="Black and white pencil portrait drawing by student"
-                src="https://images.unsplash.com/photo-1581129511504-aba391af6cad"
+              <img
+                className="w-full h-96 object-cover rounded-lg shadow-lg"
+                alt="Student artwork 2"
+                src={art2}
               />
             </motion.div>
           </div>
+
+          {/* Mini gallery with your third image */}
+        {/* Mini gallery with your third image */}
+<div className="mt-16">
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div className="rounded-lg shadow-lg bg-white flex items-center justify-center p-2 md:col-span-3">
+      <img
+        src={art3}
+        alt="Student artwork 3"
+        className="max-h-[420px] w-auto object-contain"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</div>
+
+
+          {/* Beautiful link card to Google Drive gallery */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mt-16"
+          >
+            <a
+              href="https://drive.google.com/drive/folders/1F2FfPeTWKtcKUegTJcPkv_bTowxjhBwz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block rounded-2xl bg-gradient-to-r from-gold to-yellow-400 p-1 shadow-lg hover:shadow-xl transition"
+            >
+              <div className="bg-white rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between">
+                <div className="text-center md:text-left">
+                  <h3 className="text-2xl font-bold text-navy">Explore More Student Art</h3>
+                  <p className="text-gray-600 mt-2">
+                    Visit our full gallery to see additional drawings, paintings, and creative projects.
+                  </p>
+                </div>
+                <div className="mt-6 md:mt-0 flex items-center gap-3 text-navy">
+                  <span className="font-semibold">Open Gallery</span>
+                  <ExternalLink className="w-5 h-5" />
+                </div>
+              </div>
+            </a>
+          </motion.div>
         </div>
       </section>
 

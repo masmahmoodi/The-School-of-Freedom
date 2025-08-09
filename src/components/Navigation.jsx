@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import logo from '../images/logo.jpg'; // Import your logo image
+import logo from '../images/logo.jpg';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -51,13 +51,24 @@ const Navigation = () => {
                 {item.name}
               </Link>
             ))}
+
             <div className="flex space-x-4">
-              <Link to="/donate" className="btn-primary text-sm px-4 py-2">
+              <a
+                href="https://www.zeffy.com/donation-form/donate-to-make-a-difference-8491"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary text-sm px-4 py-2"
+              >
                 Donate
-              </Link>
-              <Link to="/petition" className="bg-navy text-white px-4 py-2 rounded-lg font-medium hover:bg-opacity-90 transition-all duration-300">
+              </a>
+              <a
+                href="https://form.jotform.com/251385758940064"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-navy text-white px-4 py-2 rounded-lg font-medium hover:bg-opacity-90 transition-all duration-300"
+              >
                 Sign Petition
-              </Link>
+              </a>
             </div>
           </div>
 
@@ -65,6 +76,7 @@ const Navigation = () => {
           <button
             className="md:hidden text-navy"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -92,21 +104,26 @@ const Navigation = () => {
                     {item.name}
                   </Link>
                 ))}
+
                 <div className="flex flex-col space-y-2 pt-4">
-                  <Link
-                    to="/donate"
+                  <a
+                    href="https://www.zeffy.com/donation-form/donate-to-make-a-difference-8491"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="btn-primary text-center"
                     onClick={() => setIsOpen(false)}
                   >
                     Donate Now
-                  </Link>
-                  <Link
-                    to="/petition"
+                  </a>
+                  <a
+                    href="https://form.jotform.com/251385758940064"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="bg-navy text-white px-4 py-2 rounded-lg font-medium text-center hover:bg-opacity-90 transition-all duration-300"
                     onClick={() => setIsOpen(false)}
                   >
                     Sign Petition
-                  </Link>
+                  </a>
                 </div>
               </div>
             </motion.div>

@@ -1,56 +1,23 @@
-
-import React, { useState } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-  const [newsletterEmail, setNewsletterEmail] = useState('');
   const { toast } = useToast();
-
-  const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    toast({
-      title: '🚧 Contact Form Coming Soon!',
-      description: 'Message sending isn\'t implemented yet—but don\'t worry! You can request email integration in your next prompt! 🚀',
-      duration: 5000,
-    });
-  };
-
-  const handleNewsletterSubmit = (e) => {
-    e.preventDefault();
-    toast({
-      title: '🚧 Newsletter Signup Coming Soon!',
-      description: 'Newsletter subscription isn\'t implemented yet—but don\'t worry! You can request email list integration in your next prompt! 🚀',
-      duration: 5000,
-    });
-  };
 
   const contactInfo = [
     {
       icon: <Mail className="w-6 h-6 text-gold" />,
       title: 'Email Us',
-      details: 'info@schooloffreedom.org',
+      details: 'Admin@schooloffreedom.org',
       description: 'Send us a message anytime'
     },
     {
       icon: <Phone className="w-6 h-6 text-gold" />,
       title: 'Call Us',
-      details: '+1 (555) 123-4567',
+      details: '(916) 844-5480',
       description: 'Monday - Friday, 9AM - 5PM PST'
     },
     {
@@ -65,13 +32,16 @@ const Contact = () => {
     <>
       <Helmet>
         <title>Contact Us - The School of Freedom</title>
-        <meta name="description" content="Get in touch with The School of Freedom. Contact us for inquiries, partnerships, or to learn more about our educational programs." />
+        <meta
+          name="description"
+          content="Get in touch with The School of Freedom. Contact us for inquiries, partnerships, or to learn more about our educational programs."
+        />
       </Helmet>
 
       {/* Hero Section */}
       <section className="py-20 hero-gradient text-white">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             className="text-center max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -79,7 +49,7 @@ const Contact = () => {
           >
             <h1 className="text-5xl md:text-6xl font-bold font-display mb-6">Get in Touch</h1>
             <p className="text-xl md:text-2xl">
-              We'd love to hear from you. Reach out with questions, partnership opportunities, 
+              We'd love to hear from you. Reach out with questions, partnership opportunities,
               or to learn more about our mission.
             </p>
           </motion.div>
@@ -89,7 +59,7 @@ const Contact = () => {
       {/* Contact Information */}
       <section className="section-padding">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -98,7 +68,7 @@ const Contact = () => {
           >
             <h2 className="section-title">How to Reach Us</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Whether you're interested in supporting our mission, partnering with us, 
+              Whether you're interested in supporting our mission, partnering with us,
               or simply want to learn more, we're here to help.
             </p>
           </motion.div>
@@ -113,9 +83,7 @@ const Contact = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="flex justify-center mb-4">
-                  {info.icon}
-                </div>
+                <div className="flex justify-center mb-4">{info.icon}</div>
                 <h3 className="text-xl font-semibold text-navy mb-2">{info.title}</h3>
                 <p className="text-lg font-medium text-gold mb-2">{info.details}</p>
                 <p className="text-gray-600">{info.description}</p>
@@ -125,171 +93,101 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Contact Form */}
+      {/* FAQ (Updated) */}
       <section className="py-16 bg-light-gray">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Form */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <div className="card p-8">
-                <h2 className="text-3xl font-bold text-navy mb-6">Send Us a Message</h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      required
-                      className="form-input"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      required
-                      className="form-input"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Subject *
-                    </label>
-                    <input
-                      type="text"
-                      name="subject"
-                      required
-                      className="form-input"
-                      value={formData.subject}
-                      onChange={handleInputChange}
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Message *
-                    </label>
-                    <textarea
-                      name="message"
-                      required
-                      className="form-textarea"
-                      placeholder="Tell us how we can help you..."
-                      value={formData.message}
-                      onChange={handleInputChange}
-                    ></textarea>
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full btn-primary text-lg py-4 flex items-center justify-center space-x-2"
-                  >
-                    <Send size={20} />
-                    <span>Send Message</span>
-                  </button>
-                </form>
-              </div>
-            </motion.div>
-
-            {/* Additional Info */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="space-y-8"
-            >
-              {/* FAQ */}
-              <div className="card p-8">
-                <h3 className="text-2xl font-semibold text-navy mb-6">Frequently Asked Questions</h3>
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="font-semibold text-navy mb-2">How can I volunteer?</h4>
-                    <p className="text-gray-600">We welcome volunteers with various skills. Contact us to learn about current opportunities.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-navy mb-2">Can I visit your programs?</h4>
-                    <p className="text-gray-600">Due to security concerns for our students, visits are arranged on a case-by-case basis.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-navy mb-2">How are donations used?</h4>
-                    <p className="text-gray-600">Donations go directly to educational materials, teacher stipends, and technology access for students.</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Partnership */}
-              <div className="card p-8">
-                <h3 className="text-2xl font-semibold text-navy mb-4">Partnership Opportunities</h3>
-                <p className="text-gray-600 mb-4">
-                  We're always looking for partners who share our commitment to education and empowerment.
-                </p>
-                <ul className="space-y-2 text-gray-600">
-                  <li>• Educational institutions</li>
-                  <li>• Technology companies</li>
-                  <li>• Humanitarian organizations</li>
-                  <li>• Corporate sponsors</li>
-                </ul>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Newsletter Signup */}
-      <section className="py-16 bg-navy text-white">
-        <div className="container mx-auto px-4">
-          <motion.div 
-            className="text-center max-w-4xl mx-auto"
+          <motion.div
+            className="card p-8"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold font-display mb-6">Stay Connected</h2>
-            <p className="text-xl mb-8">
-              Join our newsletter to receive updates about our programs, student success stories, 
-              and ways you can make a difference.
-            </p>
-            
-            <form onSubmit={handleNewsletterSubmit} className="max-w-md mx-auto">
-              <div className="flex space-x-4">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 rounded-lg text-gray-700"
-                  value={newsletterEmail}
-                  onChange={(e) => setNewsletterEmail(e.target.value)}
-                  required
-                />
-                <button
-                  type="submit"
-                  className="btn-primary px-6 py-3 flex items-center space-x-2"
-                >
-                  <MessageCircle size={20} />
-                  <span>Subscribe</span>
-                </button>
+            <h3 className="text-3xl font-bold text-navy mb-6">Frequently Asked Questions (FAQ)</h3>
+            <div className="space-y-6 text-gray-700">
+              <div>
+                <h4 className="font-semibold text-navy mb-2">1. What is the School of Freedom?</h4>
+                <p>
+                  The School of Freedom is a nonprofit organization dedicated to providing quality education
+                  for Afghan girls in Afghanistan and refugee/newcomer youth in the United States. We focus on
+                  academic tutoring, mentorship, college preparation, and leadership development.
+                </p>
               </div>
-            </form>
-            
-            <p className="text-gray-300 mt-4 text-sm">
-              We respect your privacy and will never share your email address.
-            </p>
+
+              <div>
+                <h4 className="font-semibold text-navy mb-2">2. Who can participate in your programs?</h4>
+                <ul className="list-disc ml-6 space-y-1">
+                  <li>Afghan girls currently denied access to education in Afghanistan</li>
+                  <li>Refugee and newcomer students in the U.S.</li>
+                  <li>Students in need of academic support and mentorship</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-navy mb-2">3. Are your programs free?</h4>
+                <p>Yes. All of our educational programs, tutoring, and mentorship sessions are completely free for students.</p>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-navy mb-2">4. How can I volunteer?</h4>
+                <p>
+                  We welcome high school students, college students, graduates, working professionals, and retirees as volunteers.
+                  Opportunities include tutoring, mentorship, helping with college prep, and providing language support.
+                  You can sign up on our Volunteer page.
+                </p>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-navy mb-2">5. Do I need teaching experience to volunteer?</h4>
+                <p>No. While prior experience is helpful, we provide training and resources to ensure you can confidently support students.</p>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-navy mb-2">6. Are sessions in-person or online?</h4>
+                <p>
+                  Most of our programs are online to make them accessible for students regardless of location.
+                  Some local partnerships, like with school districts, may include in-person opportunities.
+                </p>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-navy mb-2">7. How can I donate?</h4>
+                <p>
+                  You can support our work by donating through our Donate page. Every contribution helps us provide educational
+                  resources, internet access, and teacher support for our students.
+                </p>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-navy mb-2">8. Where do you operate?</h4>
+                <ul className="list-disc ml-6 space-y-1">
+                  <li><span className="font-medium">Internationally:</span> Supporting Afghan girls in Afghanistan through virtual education.</li>
+                  <li><span className="font-medium">In the U.S.:</span> Supporting refugee and newcomer youth, especially in California.</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-navy mb-2">9. What languages do you offer support in?</h4>
+                <p>We provide educational support in English, Dari, Pashto, and other languages depending on volunteer availability.</p>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-navy mb-2">10. How can I petition to support the School of Freedom Charter School?</h4>
+                <p>
+                  We are working to open the first-ever School of Freedom Charter School to serve refugee and newcomer students.
+                  You can help make this a reality by signing our petition on the Charter School Petition page. Your signature
+                  will show community support to local school boards and decision-makers, helping us secure approval and funding.
+                </p>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-navy mb-2">11. How can I contact the School of Freedom?</h4>
+                <p>
+                  You can reach us at <span className="font-medium">Admin@schooloffreedom.org</span> or by phone at
+                  <span className="font-medium"> (916) 844-5480</span>. We’re also active on social media.
+                </p>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -297,7 +195,7 @@ const Contact = () => {
       {/* Map Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             className="text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -306,12 +204,12 @@ const Contact = () => {
           >
             <h2 className="section-title">Our Location</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Based in the Sacramento area near UC Davis, we serve students globally 
+              Based in the Sacramento area near UC Davis, we serve students globally
               through our virtual programs and locally through our refugee support initiatives.
             </p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="bg-light-gray rounded-lg p-8 text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -323,16 +221,17 @@ const Contact = () => {
             </div>
             <h3 className="text-2xl font-semibold text-navy mb-4">Sacramento, California</h3>
             <p className="text-gray-600 mb-6">
-              Our headquarters are located in the Sacramento area, where we coordinate 
+              Our headquarters are located in the Sacramento area, where we coordinate
               our global virtual programs and local refugee support services.
             </p>
-            <button 
+            <button
               className="btn-primary"
               onClick={() => {
                 toast({
                   title: '🚧 Interactive Map Coming Soon!',
-                  description: 'Map integration isn\'t available yet—but don\'t worry! You can request Google Maps integration in your next prompt! 🚀',
-                  duration: 5000,
+                  description:
+                    "Map integration isn't available yet—but don't worry! You can request Google Maps integration next. 🚀",
+                  duration: 5000
                 });
               }}
             >
