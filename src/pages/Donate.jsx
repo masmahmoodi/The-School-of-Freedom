@@ -2,13 +2,11 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { Heart, BookOpen, Users, Globe, DollarSign } from 'lucide-react';
-import { useToast } from '@/components/ui/use-toast';
 
 const Donate = () => {
   const [selectedAmount, setSelectedAmount] = useState(50);
   const [customAmount, setCustomAmount] = useState('');
   const [donationType, setDonationType] = useState('one-time');
-  const { toast } = useToast();
 
   const predefinedAmounts = [25, 50, 100, 250, 500];
 
@@ -40,12 +38,8 @@ const Donate = () => {
   ];
 
   const handleDonate = () => {
-    const amount = customAmount || selectedAmount;
-    toast({
-      title: '🚧 Donation Processing Coming Soon!',
-      description: 'Payment processing isn\'t implemented yet—but don\'t worry! You can request PayPal/Stripe integration in your next prompt! 🚀',
-      duration: 5000,
-    });
+    // Redirect to your Zeffy donation form
+    window.location.href = "https://www.zeffy.com/donation-form/donate-to-make-a-difference-8491";
   };
 
   return (
@@ -209,92 +203,6 @@ const Donate = () => {
               </p>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* Student Quote */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <img  
-                className="w-full h-96 object-cover rounded-lg shadow-lg" 
-                alt="Students cutting a graduation cake at The School of Freedom ceremony" 
-                src="https://storage.googleapis.com/hostinger-horizons-assets-prod/fcc56374-5a86-405d-8d0c-cb8f0ff23b21/196cc0f076c98bbb300ed17190aebfc4.png" />
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <div className="quote-card">
-                <p className="text-2xl md:text-3xl font-medium mb-4 font-display">
-                  "It wasn't always easy, but it's worth it."
-                </p>
-                <p className="text-lg font-semibold mb-6">— Wagma, School of Freedom Student</p>
-                <p className="text-gray-700 mb-6">
-                  Your donation makes stories like Wagma's possible. Every contribution helps us 
-                  provide the resources, support, and opportunities that transform lives through education.
-                </p>
-                <p className="text-gray-700">
-                  When you donate to The School of Freedom, you're not just giving money—you're 
-                  giving hope, opportunity, and a brighter future to young women who refuse to 
-                  give up on their dreams.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Alternative Giving */}
-      <section className="py-16 bg-navy text-white">
-        <div className="container mx-auto px-4">
-          <motion.div 
-            className="text-center max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl font-bold font-display mb-6">Other Ways to Give</h2>
-            <p className="text-xl mb-8">
-              Can't donate right now? There are other meaningful ways you can support our mission.
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-8 h-8 text-navy" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Spread the Word</h3>
-                <p>Share our mission with friends and family to help us reach more supporters.</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Heart className="w-8 h-8 text-navy" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Volunteer</h3>
-                <p>Offer your skills and time to help with our programs and initiatives.</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Globe className="w-8 h-8 text-navy" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Advocate</h3>
-                <p>Support our petition and help advocate for Afghan girls' right to education.</p>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </section>
     </>

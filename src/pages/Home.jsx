@@ -1,10 +1,8 @@
-
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { BookOpen, Users, Heart, Award, ArrowRight } from 'lucide-react';
-// trigger
+
 const Home = () => {
   const stats = [
     { number: '1,200+', label: 'Students Empowered' },
@@ -49,7 +47,7 @@ const Home = () => {
           <img  
             className="w-full h-full object-cover" 
             alt="Afghan girls celebrating graduation with cake cutting ceremony"
-           src="https://cloudfront-us-east-2.images.arcpublishing.com/reuters/SYAG5VDK6NLOLC3C7C5OR6OBKI.jpg" />
+            src="https://cloudfront-us-east-2.images.arcpublishing.com/reuters/SYAG5VDK6NLOLC3C7C5OR6OBKI.jpg" />
           <div className="absolute inset-0 gradient-overlay"></div>
         </div>
         
@@ -78,12 +76,22 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <Link to="/donate" className="btn-primary text-lg px-8 py-4">
+            <a 
+              href="https://www.zeffy.com/donation-form/donate-to-make-a-difference-8491" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn-primary text-lg px-8 py-4"
+            >
               Donate Now
-            </Link>
-            <Link to="/petition" className="btn-secondary text-lg px-8 py-4">
+            </a>
+            <a 
+              href="https://form.jotform.com/251385758940064" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn-secondary text-lg px-8 py-4"
+            >
               Sign the Petition
-            </Link>
+            </a>
           </motion.div>
         </div>
       </section>
@@ -184,10 +192,10 @@ const Home = () => {
                 In the United States, we support Afghan refugee youth through after-school tutoring, 
                 college preparation, ESL mentorship, and culturally inclusive advising.
               </p>
-              <Link to="/about" className="btn-primary inline-flex items-center space-x-2">
+              <a href="/about" className="btn-primary inline-flex items-center space-x-2">
                 <span>Learn More About Us</span>
                 <ArrowRight size={20} />
-              </Link>
+              </a>
             </motion.div>
             
             <motion.div
@@ -199,7 +207,7 @@ const Home = () => {
               <img  
                 className="w-full h-96 object-cover rounded-lg shadow-lg" 
                 alt="Afghan students studying together in classroom"
-               src="https://www.hrw.org/sites/default/files/styles/opengraph/public/media_2021/10/202110asia_afghanistan_woman.jpg?h=e5aec6c8&itok=FjfBDv9o" />
+                src="https://www.hrw.org/sites/default/files/styles/opengraph/public/media_2021/10/202110asia_afghanistan_woman.jpg?h=e5aec6c8&itok=FjfBDv9o" />
             </motion.div>
           </div>
         </div>
@@ -222,12 +230,22 @@ const Home = () => {
               education remains a fundamental right for every girl, everywhere.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/donate" className="btn-primary text-lg px-8 py-4">
+              <a 
+                href="https://www.zeffy.com/donation-form/donate-to-make-a-difference-8491" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn-primary text-lg px-8 py-4"
+              >
                 Make a Donation
-              </Link>
-              <Link to="/petition" className="btn-secondary text-lg px-8 py-4">
+              </a>
+              <a 
+                href="https://form.jotform.com/251385758940064" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn-secondary text-lg px-8 py-4"
+              >
                 Support Our Petition
-              </Link>
+              </a>
             </div>
           </motion.div>
         </div>
