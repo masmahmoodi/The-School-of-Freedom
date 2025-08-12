@@ -7,7 +7,7 @@ import walidImgNew from "../images/walidNewsPaper.jpg";           // default art
 import walidPodcastImg from "../images/walid's podcast.png";      // podcast thumbnail
 import aewaImg from "../images/image3.jpg";                       // AEWA partnership image
 import egusdImg from "../images/image4.jpg";                      // EGUSD partnership image
-import conferenceImg from "../images/image4jpg.jpg";                // ✅ AACO conference image
+import conferenceImg from "../images/image4jpg.jpg";              // AACO conference image
 
 // 👉 Put your full YouTube link here
 const YOUTUBE_URL = "https://youtu.be/gA7O4pLviGs";
@@ -59,7 +59,6 @@ const Updates = () => {
       image: 'EGUSD partnership announcement',
       imgSrc: egusdImg
     },
-    // ✅ New AACO conference card (no link)
     {
       type: 'news',
       title: 'Afghan-American Community Organization’s 10th Annual Conference',
@@ -77,7 +76,7 @@ const Updates = () => {
     {
       title: 'A Light in the Dark: How Our Secret Schools are Thriving',
       date: 'July 15, 2025',
-      author: 'Jane Doe, Program Director',
+      author: 'Walid',
       description:
         'Despite the immense challenges, our network of underground schools in Afghanistan continues to grow. Discover how our brave teachers and resilient students are keeping the flame of education alive...',
       link: '#'
@@ -85,7 +84,7 @@ const Updates = () => {
     {
       title: "Announcing the 'Future Leaders' U.S. Charter School Initiative",
       date: 'July 1, 2025',
-      author: 'John Smith, CEO',
+      author: 'Walid',
       description:
         'We are thrilled to announce the next chapter for School of Freedom: a new charter school in the U.S. dedicated to supporting refugee youth. Learn about our vision and how you can help.',
       link: '#'
@@ -93,7 +92,7 @@ const Updates = () => {
     {
       title: "Student Spotlight: Fatima's Journey to Becoming a Coder",
       date: 'June 20, 2025',
-      author: 'Maria Garcia, Mentor',
+      author: 'Walid',
       description:
         "Meet Fatima, a recent graduate who defied the odds to learn coding through our online program. Today, she's working as a junior developer and inspiring her entire community.",
       link: '#'
@@ -164,7 +163,6 @@ const Updates = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  {/* Image for non-podcast items */}
                   {!isPodcast && (
                     <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
                       <img
@@ -175,7 +173,6 @@ const Updates = () => {
                     </div>
                   )}
 
-                  {/* Text */}
                   <div className={!isPodcast && index % 2 === 1 ? 'lg:order-1' : ''}>
                     <div className="flex items-center space-x-2 mb-4">
                       {item.type === 'article' && <Newspaper className="w-5 h-5 text-gold" />}
@@ -211,7 +208,6 @@ const Updates = () => {
                     )}
                   </div>
 
-                  {/* Podcast image below text, opens YouTube */}
                   {isPodcast && (
                     <div className="lg:col-span-2">
                       <h4 className="text-xl font-semibold text-navy mb-3">Watch: School of Freedom on YouTube</h4>
@@ -262,9 +258,7 @@ const Updates = () => {
                   <p className="text-sm text-gray-500 mb-1">{item.date} by {item.author}</p>
                   <p className="text-gray-700 mb-4">{item.description}</p>
                 </div>
-                <a href={item.link} className="text-gold hover:text-navy font-medium mt-auto inline-block">
-                  Read More →
-                </a>
+                {/* Removed Read More link */}
               </motion.div>
             ))}
           </div>
