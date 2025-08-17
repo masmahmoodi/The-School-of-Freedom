@@ -1,7 +1,11 @@
+// src/track.js  (BROWSER)
 import { UAParser } from 'ua-parser-js';
 
+const isLocal = location.hostname === 'localhost';
+const ORIGIN  = isLocal ? 'https://the-school-of-freedom.vercel.app' : '';
 
-const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwhgwM5K42ioCpLYoxbt8y_wI3sT-KyMkOwUQwGWoVcCkNdnTimXuI2TrEard-1lMt-zA/exec"; // <-- paste your /exec URL
+const GEO_URL   = `${ORIGIN}/api/geo`;
+const TRACK_URL = `${ORIGIN}/api/track`;
 
 function getUTM() {
   const p = new URLSearchParams(window.location.search);
@@ -12,18 +16,12 @@ function getUTM() {
 }
 
 export async function trackVisitOnce() {
-  // only once per tab/session
   if (sessionStorage.getItem('tracked')) return;
 
-  // 1) get geo (works on deployed site)
   let geo = {};
-  try {
-    geo = await fetch('/api/geo', { method: 'POST' }).then(r => r.json());
-  } catch {}
+  try { geo = await fetch(GEO_URL, { method: 'POST' }).then(r => r.json()); } catch {}
 
-  // 2) parse user agent
   const ua = new UAParser().getResult();
-
   const payload = {
     country: geo.country,
     city: geo.city,
@@ -40,12 +38,9 @@ export async function trackVisitOnce() {
   const blob = new Blob([body], { type: 'application/json' });
 
   try {
-    // prefer sendBeacon to avoid blocking navigation
-    if (!navigator.sendBeacon || !navigator.sendBeacon(WEBHOOK_URL, blob)) {
-      await fetch(WEBHOOK_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body });
+    if (!navigator.sendBeacon || !navigator.sendBeacon(TRACK_URL, blob)) {
+      await fetch(TRACK_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body });
     }
     sessionStorage.setItem('tracked', '1');
-  } catch {
-    // ignore errors
-  }
+  } catch {}
 }
