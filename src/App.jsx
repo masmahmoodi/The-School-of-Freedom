@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from '@/components/ui/toaster';
 import Navigation from '@/components/Navigation';
@@ -12,7 +12,13 @@ import Petition from '@/pages/Petition.jsx';
 import Updates from '@/pages/Updates.jsx';
 import Contact from '@/pages/Contact.jsx';
 
+import { trackVisitOnce } from '@/track'; // src/track.js
+
 function App() {
+  useEffect(() => {
+    trackVisitOnce(); // logs exactly once per tab/session
+  }, []);
+
   return (
     <Router>
       <div className="min-h-screen flex flex-col">
